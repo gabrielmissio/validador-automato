@@ -5,15 +5,16 @@
 using namespace std;
 
 string input;
+string result;
 int controle;
 char proximoCharValido;
 ofstream results;
 
-void s0();
+void s0(bool first);
 void s1();
 void s2();
 void s3();
-void writeLine(string result);
+void writeLine(bool finalLine, bool isReject);
 
 
 int main(){
@@ -44,40 +45,61 @@ int main(){
         // Start variable values
         controle = 0;
         proximoCharValido = 'a';
+        result = "";
 
         cout<<"Palavra Lida: "<<input<<endl;
-        s0();
+        results<<"Palavra Lida: "<<input<<"\n";
+        s0(true);
     }
     strings.close();
     results.close();
 }
 
-void writeLine(string result){
+void writeLine(bool finalLine=false, bool isReject=false){
+    string reject = "STRING REJEITADA";
+
     if (results.is_open()) {
         results<<result<<"\n";
+        if (isReject){
+            cout<<reject<<endl;
+            results<<"\n"<<reject<<"\n";
+        }
+        if (finalLine) {
+            cout<<"-----------------------------------"<<"\n"<<endl;
+            results<<"-----------------------------------"<<"\n"<<"\n";
+        }
     } else {
         throw invalid_argument("Result file is not accessible.");
     }
 }
 
-void s0(){
-    string value;
+void s0(bool first = false){
+
     if(controle < input.size()){
-        value = "ft(q0,";
-        value += input[controle];
-        value = value + ") = ";
+        if (!first) {
+            result = result + "q0";
+            writeLine();
+        }
+
+        result = "ft(q0,";
+        result += input[controle];
+        result = result + ") = ";
+
         if(input[controle] == proximoCharValido){//a
             proximoCharValido = 'a';
             controle++;
-            writeLine(value + "q1");
             s1();
         }else{
             controle++;
-            writeLine(value + "q0");
             s0();
         }
     }else{
-        cout<<"STRING REJEITADA"<<endl;
+        if (first) {
+            result = "Error on read string!";
+        } else {
+            result += "error";
+        }
+        writeLine(true, true);
     }
 
 }
@@ -85,16 +107,24 @@ void s0(){
 void s1(){
 
     if(controle < input.size()){
+        result = result + "q1";
+        writeLine();
+
+        result = "ft(q1,";
+        result += input[controle];
+        result = result + ") = ";
+
         if(input[controle] == proximoCharValido){//b
             proximoCharValido = 'a';
             controle++;
             s2();
-        }else{
+        } else {
             controle++;
             s1();
         }
     }else{
-        cout<<"STRING REJEITADA"<<endl;
+        result += "error";
+        writeLine(true, true);
     }
 
 }
@@ -102,6 +132,13 @@ void s1(){
 void s2(){//s3 do desenho errado
 
     if(controle < input.size()){
+        result = result + "q2";
+        writeLine();
+
+        result = "ft(q2,";
+        result += input[controle];
+        result = result + ") = ";
+
         if(input[controle] == proximoCharValido){//a
             proximoCharValido = 'b';
             controle++;
@@ -111,13 +148,24 @@ void s2(){//s3 do desenho errado
             s2();
         }
     }else{
-        cout<<"STRING ACEITA"<<endl;
+        result += "q2";
+        writeLine();
+        result = "\nSTRING ACEITA";
+        cout<<result<<endl;
+        writeLine(true);
     }
 }
 
 void s3(){
 
     if(controle < input.size()){
+        result = result + "q3";
+        writeLine();
+
+        result = "ft(q3,";
+        result += input[controle];
+        result = result + ") = ";
+
         if(input[controle] == proximoCharValido){//b
             proximoCharValido = 'a';
             controle++;
@@ -127,7 +175,8 @@ void s3(){
             s3();
         }
     }else{
-        cout<<"STRING REJEITADA"<<endl;
+        result += "error";
+        writeLine(true, true);
     }
 
 }
