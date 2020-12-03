@@ -1,0 +1,97 @@
+L = {W | W ∈ {ab^m ba(ab)^n | m, n ≥0} }
+Alfabeto = {a,b}
+Estados = {q0, q1, q2, q3}
+Estado Inicial = {q0}
+Estado Final = {q2}
+-----------------------------------
+Palavra Lida: baaaaabb
+ft(q0,b) = q0
+ft(q0,a) = q1
+ft(q1,a) = q2
+ft(q2,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,b) = q2
+ft(q2,b) = q2
+
+STRING ACEITA
+-----------------------------------
+
+Palavra Lida: baba
+ft(q0,b) = q0
+ft(q0,a) = q1
+ft(q1,b) = q1
+ft(q1,a) = q2
+
+STRING ACEITA
+-----------------------------------
+
+Palavra Lida: baaabaa
+ft(q0,b) = q0
+ft(q0,a) = q1
+ft(q1,a) = q2
+ft(q2,a) = q3
+ft(q3,b) = q2
+ft(q2,a) = q3
+ft(q3,a) = error
+
+STRING REJEITADA
+-----------------------------------
+
+Palavra Lida: babb
+ft(q0,b) = q0
+ft(q0,a) = q1
+ft(q1,b) = q1
+ft(q1,b) = error
+
+STRING REJEITADA
+-----------------------------------
+
+Palavra Lida: baaaaaaaba
+ft(q0,b) = q0
+ft(q0,a) = q1
+ft(q1,a) = q2
+ft(q2,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,b) = q2
+ft(q2,a) = error
+
+STRING REJEITADA
+-----------------------------------
+
+Palavra Lida: ba
+ft(q0,b) = q0
+ft(q0,a) = error
+
+STRING REJEITADA
+-----------------------------------
+
+Palavra Lida: b
+ft(q0,b) = error
+
+STRING REJEITADA
+-----------------------------------
+
+Palavra Lida: baaaaaaaaaaaaba
+ft(q0,b) = q0
+ft(q0,a) = q1
+ft(q1,a) = q2
+ft(q2,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,a) = q3
+ft(q3,b) = q2
+ft(q2,a) = error
+
+STRING REJEITADA
+-----------------------------------
+
