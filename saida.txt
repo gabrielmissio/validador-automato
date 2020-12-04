@@ -1,8 +1,8 @@
 L = {W | W ∈ {ab^m ba(ab)^n | m, n ≥0} }
 Alfabeto = {a,b}
-Estados = {q0, q1, q2, q3}
+Estados = {q0, q1, q2, q3, q4}
 Estado Inicial = {q0}
-Estado Final = {q2}
+Estado Final = {q3}
 -----------------------------------
 Palavra Lida: baaabba
 ft(q0,b) = q0

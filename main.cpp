@@ -11,10 +11,10 @@ char proximoCharValido;
 ofstream results;
 
 void s0(bool first);
-void coretivo();
 void s1();
 void s2();
 void s3();
+void s4();
 void writeLine(bool finalLine, bool isReject);
 
 
@@ -89,7 +89,7 @@ void s0(bool first = false){
         if(input[controle] == proximoCharValido){//a
             proximoCharValido = 'b';
             controle++;
-            coretivo();
+            s1();
         }else{
             controle++;
             s0();
@@ -106,7 +106,7 @@ void s0(bool first = false){
 }
 
 
-void coretivo(){
+void s1(){
 
     if(controle < input.size()){
         result = result + "q1";
@@ -119,10 +119,10 @@ void coretivo(){
         if(input[controle] == proximoCharValido){//b
             proximoCharValido = 'a';
             controle++;
-            s1();
+            s2();
         } else {
             controle++;
-            coretivo();
+            s1();
         }
     }else{
         result += "error";
@@ -131,7 +131,7 @@ void coretivo(){
 
 }
 
-void s1(){
+void s2(){
 
     if(controle < input.size()){
         result = result + "q2";
@@ -144,10 +144,10 @@ void s1(){
         if(input[controle] == proximoCharValido){//b
             proximoCharValido = 'a';
             controle++;
-            s2();
+            s3();
         } else {
             controle++;
-            s1();
+            s2();
         }
     }else{
         result += "error";
@@ -156,7 +156,7 @@ void s1(){
 
 }
 
-void s2(){//s3 do desenho errado
+void s3(){//s3 do desenho errado
 
     if(controle < input.size()){
         result = result + "q3";
@@ -169,10 +169,10 @@ void s2(){//s3 do desenho errado
         if(input[controle] == proximoCharValido){//a
             proximoCharValido = 'b';
             controle++;
-            s3();
+            s4();
         }else{
             controle++;
-            s2();
+            s3();
         }
     }else{
         result += "q3";
@@ -183,7 +183,7 @@ void s2(){//s3 do desenho errado
     }
 }
 
-void s3(){
+void s4(){
 
     if(controle < input.size()){
         result = result + "q4";
@@ -196,10 +196,10 @@ void s3(){
         if(input[controle] == proximoCharValido){//b
             proximoCharValido = 'a';
             controle++;
-            s2();
+            s3();
         }else{
             controle++;
-            s3();
+            s4();
         }
     }else{
         result += "error";
