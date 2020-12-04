@@ -11,6 +11,7 @@ char proximoCharValido;
 ofstream results;
 
 void s0(bool first);
+void coretivo();
 void s1();
 void s2();
 void s3();
@@ -22,9 +23,9 @@ int main(){
     ifstream strings;
     string linguagem = "L = {W | W ∈ {ab^m ba(ab)^n | m, n ≥0} }";
     string alfabeto = "Alfabeto = {a,b}";
-    string estados = "Estados = {q0, q1, q2, q3}";
+    string estados = "Estados = {q0, q1, q2, q3, q4}";
     string estadosIniciais = "Estado Inicial = {q0}";
-    string estadosFinais = "Estado Final = {q2}";
+    string estadosFinais = "Estado Final = {q3}";
 
     results.open("saida.txt");
     results<<linguagem<<"\n";
@@ -86,9 +87,9 @@ void s0(bool first = false){
         result = result + ") = ";
 
         if(input[controle] == proximoCharValido){//a
-            proximoCharValido = 'a';
+            proximoCharValido = 'b';
             controle++;
-            s1();
+            coretivo();
         }else{
             controle++;
             s0();
@@ -104,13 +105,39 @@ void s0(bool first = false){
 
 }
 
-void s1(){
+
+void coretivo(){
 
     if(controle < input.size()){
         result = result + "q1";
         writeLine();
 
         result = "ft(q1,";
+        result += input[controle];
+        result = result + ") = ";
+
+        if(input[controle] == proximoCharValido){//b
+            proximoCharValido = 'a';
+            controle++;
+            s1();
+        } else {
+            controle++;
+            coretivo();
+        }
+    }else{
+        result += "error";
+        writeLine(true, true);
+    }
+
+}
+
+void s1(){
+
+    if(controle < input.size()){
+        result = result + "q2";
+        writeLine();
+
+        result = "ft(q2,";
         result += input[controle];
         result = result + ") = ";
 
@@ -132,10 +159,10 @@ void s1(){
 void s2(){//s3 do desenho errado
 
     if(controle < input.size()){
-        result = result + "q2";
+        result = result + "q3";
         writeLine();
 
-        result = "ft(q2,";
+        result = "ft(q3,";
         result += input[controle];
         result = result + ") = ";
 
@@ -148,7 +175,7 @@ void s2(){//s3 do desenho errado
             s2();
         }
     }else{
-        result += "q2";
+        result += "q3";
         writeLine();
         result = "\nSTRING ACEITA";
         cout<<result<<endl;
@@ -159,10 +186,10 @@ void s2(){//s3 do desenho errado
 void s3(){
 
     if(controle < input.size()){
-        result = result + "q3";
+        result = result + "q4";
         writeLine();
 
-        result = "ft(q3,";
+        result = "ft(q4,";
         result += input[controle];
         result = result + ") = ";
 

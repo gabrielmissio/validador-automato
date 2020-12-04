@@ -4,45 +4,54 @@ Estados = {q0, q1, q2, q3}
 Estado Inicial = {q0}
 Estado Final = {q2}
 -----------------------------------
-Palavra Lida: baaaaabb
+Palavra Lida: baaabba
 ft(q0,b) = q0
 ft(q0,a) = q1
-ft(q1,a) = q2
-ft(q2,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,b) = q2
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,b) = q2
 ft(q2,b) = q2
+ft(q2,a) = q3
 
 STRING ACEITA
 -----------------------------------
 
-Palavra Lida: baba
+Palavra Lida: babaab
 ft(q0,b) = q0
 ft(q0,a) = q1
-ft(q1,b) = q1
-ft(q1,a) = q2
+ft(q1,b) = q2
+ft(q2,a) = q3
+ft(q3,a) = q4
+ft(q4,b) = q3
 
 STRING ACEITA
 -----------------------------------
 
-Palavra Lida: baaabaa
+Palavra Lida: baababbbabbba
 ft(q0,b) = q0
 ft(q0,a) = q1
-ft(q1,a) = q2
+ft(q1,a) = q1
+ft(q1,b) = q2
 ft(q2,a) = q3
-ft(q3,b) = q2
-ft(q2,a) = q3
+ft(q3,b) = q3
+ft(q3,b) = q3
+ft(q3,b) = q3
+ft(q3,a) = q4
+ft(q4,b) = q3
+ft(q3,b) = q3
+ft(q3,b) = q3
 ft(q3,a) = error
 
 STRING REJEITADA
 -----------------------------------
 
-Palavra Lida: babb
+Palavra Lida: babbaa
 ft(q0,b) = q0
 ft(q0,a) = q1
-ft(q1,b) = q1
-ft(q1,b) = error
+ft(q1,b) = q2
+ft(q2,b) = q2
+ft(q2,a) = q3
+ft(q3,a) = error
 
 STRING REJEITADA
 -----------------------------------
@@ -50,48 +59,64 @@ STRING REJEITADA
 Palavra Lida: baaaaaaaba
 ft(q0,b) = q0
 ft(q0,a) = q1
-ft(q1,a) = q2
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,b) = q2
 ft(q2,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,b) = q2
-ft(q2,a) = error
 
-STRING REJEITADA
+STRING ACEITA
 -----------------------------------
 
-Palavra Lida: ba
-ft(q0,b) = q0
-ft(q0,a) = error
-
-STRING REJEITADA
------------------------------------
-
-Palavra Lida: b
-ft(q0,b) = error
-
-STRING REJEITADA
------------------------------------
-
-Palavra Lida: baaaaaaaaaaaaba
+Palavra Lida: baaabaaba
 ft(q0,b) = q0
 ft(q0,a) = q1
-ft(q1,a) = q2
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,b) = q2
 ft(q2,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,a) = q3
-ft(q3,b) = q2
-ft(q2,a) = error
+ft(q3,a) = q4
+ft(q4,b) = q3
+ft(q3,a) = error
 
 STRING REJEITADA
+-----------------------------------
+
+Palavra Lida: aaabb
+ft(q0,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,b) = q2
+ft(q2,b) = error
+
+STRING REJEITADA
+-----------------------------------
+
+Palavra Lida: baaaaaaaaababbbbbaab
+ft(q0,b) = q0
+ft(q0,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,a) = q1
+ft(q1,b) = q2
+ft(q2,a) = q3
+ft(q3,b) = q3
+ft(q3,b) = q3
+ft(q3,b) = q3
+ft(q3,b) = q3
+ft(q3,b) = q3
+ft(q3,a) = q4
+ft(q4,a) = q4
+ft(q4,b) = q3
+
+STRING ACEITA
 -----------------------------------
 
